@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+        <h1>Site List</h1>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><strong>Site List</strong></td>
+                    <td><strong>Total Number of A Value</strong></td><td><strong>Total Number of B Value</strong></td>
+                </tr>
+            </thead>
+                 {% for o in data %}
+                <tr>
+                    <td><a href="/site/{{ o.id }}">    {{ o.name }}</a></td>
+                    <td>{{ o.a  }}</td>
+                    <td>{{ o.b  }}</td>
+                </tr>
+             {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

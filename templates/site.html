@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+        <h1>Site Details - {{ sitename }}</h1>
+        <table class="table">
+            <thead>
+                <tr><td><strong>Date</strong></td>
+                <td><strong>A Value</strong></td><td><strong>B Value</strong></td></tr>
+            </thead>
+             {% for o in data %}
+                 <tr>
+                    <td>{{ o.ts|date:"N j, Y, P" }}</td>
+                    <td>{{ o.a }}</td>
+                    <td>{{ o.b }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

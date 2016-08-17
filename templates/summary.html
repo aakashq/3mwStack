@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+ <div class="container">
+        <h1>Summary - {{ pagename }}</h1>
+
+          <a href="/summary"><button type="button" class="btn btn-primary {% if sum  %} active {% endif %}">Sum</button></a>
+              <a href="/summary-average"><button type="button" class="btn btn-primary {% if not sum  %} active {% endif %}">Average</button></a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><strong>Site</strong></td>
+                    <td><strong>A Value</strong></td><td><strong>B Value</strong></td>
+                </tr>
+            </thead>
+                 {% for o in data %}
+                <tr>
+                    <td><a href="/site/{{ o.id }}">    {{ o.name }}</a></td>
+                    <td>{{ o.a|floatformat:"2"  }}</td>
+                    <td>{{ o.b|floatformat:"2"  }}</td>
+                </tr>
+             {% endfor %}
+        </table>
+    </div>
+
+{% endblock content %}
